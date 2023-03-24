@@ -34,72 +34,69 @@ function Register() {
                 } else {
                     setError(true);
                 }
-                setTimeout(()=>{
+                setTimeout(() => {
                     setIsSubmitted(false);
-                },3000);
+                }, 3000);
             })
             .catch(function (error) {
                 console.log(error);
                 setIsSubmitted(true);
                 setError(true);
-                setTimeout(()=>{
+                setTimeout(() => {
                     setIsSubmitted(false);
-                },3000);
+                }, 3000);
             });
     }
 
     return (
-        <>
-
+        <div className='container mt-5'>
             {isSubmitted &&
                 <div className={`alert ${error ? "alert-danger" : "alert-success"}`} role="alert">
                     {error ? 'Oops! Something went wrong' : 'Registered Successfully'}
                 </div>
             }
-            <div className='container'>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label className="form-label">Email address</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                            onChange={handleForm}
-                            name="email"
-                            value={user.email}
-                            required
-                        />
-                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">First Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="firstName"
-                            onChange={handleForm}
-                            name="first_name"
-                            value={user.first_name}
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Last Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="lastName"
-                            onChange={handleForm}
-                            name="last_name"
-                            value={user.last_name}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                    <label className="form-label">Email address</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        onChange={handleForm}
+                        name="email"
+                        value={user.email}
+                        required
+                    />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">First Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="firstName"
+                        onChange={handleForm}
+                        name="first_name"
+                        value={user.first_name}
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">Last Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="lastName"
+                        onChange={handleForm}
+                        name="last_name"
+                        value={user.last_name}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
 
     );
 }
